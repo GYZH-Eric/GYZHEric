@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlyx.dao.CduserDao">
+    <select id="findCduserAll" resultType="cduser">
+		select * from cduser;
+	</select>
+	
+	<select id="findCduserById" resultType="cduser" parameterType="Integer">
+		select * from cduser where cdId=#{cdId}
+	</select>
+	
+	<insert id="insertCduser" >
+		insert into cduser VALUES(null,#{cdName},#{pwd},#{tel},#{photo});
+	</insert>
+	
+	<delete id="deleteCduserById" parameterType="string">
+     	delete from cduser where cdId=#{cdId}
+    </delete>
+	
+</mapper>

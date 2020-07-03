@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <typeAliases>
+  	<typeAlias type="com.zlyx.entity.Admin" alias="admin"/>
+  	<typeAlias type="com.zlyx.entity.Cduser" alias="cduser"/>
+  	<typeAlias type="com.zlyx.entity.Cpuser" alias="cpuser"/>
+  	<typeAlias type="com.zlyx.entity.Indus" alias="indus"/>
+  </typeAliases>
+  <mappers>
+    <mapper resource="com/zlyx/dao/CduserMapper.xml"/>
+    <mapper resource="com/zlyx/dao/CpuserMapper.xml"/>
+    <mapper resource="com/zlyx/dao/IndusMapper.xml"/>
+    <mapper resource="com/zlyx/dao/adminMapper.xml"/>
+  </mappers>
+</configuration>

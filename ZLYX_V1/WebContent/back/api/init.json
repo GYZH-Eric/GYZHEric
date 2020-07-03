@@ -1,0 +1,91 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "../showWelcome.do"
+  },
+  "logoInfo": {
+    "title": "钟灵毓秀",
+    "image": "images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "信息主页",
+      "icon": "fa fa-slideshare",
+      "href": "",
+      "target": "_self",
+      "child": [
+      	{
+          "title": "主信息页",
+          "href": "../showWelcome.do",
+          "icon": "fa fa-home",
+          "target": "_self"
+        },
+        {
+          "title": "辅信息页",
+          "href": "page/welcome-2.html",
+          "icon": "fa fa-tachometer",
+          "target": "_self"
+        },
+        {
+          "title": "系统设置",
+          "href": "page/setting.html",
+          "icon": "fa fa-gears",
+          "target": "_self"
+        }
+      ]
+    },
+    {
+      "title": "用户管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "求职者用户",
+          "href": "page/table.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
+          "title": "企业用户",
+          "href": "page/table2.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
+          "title": "行业类别",
+          "href": "page/table3.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        }
+      ]
+    },
+    {
+      "title": "信息管理",
+      "icon": "fa fa-lemon-o",
+      "href": "",
+      "target": "_self",
+      "child": [
+      	{
+          "title": "简历信息",
+          "href": "page/table4.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
+          "title": "招聘信息",
+          "href": "page/table5.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+      	{
+          "title": "菜单管理",
+          "href": "page/form.html",
+          "icon": "fa fa-window-maximize",
+          "target": "_self"
+        }
+      ]
+    }
+  ]
+}

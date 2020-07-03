@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlyx.dao.IndusDao">
+    <select id="findIndusAll" resultType="indus">
+		select * from indus;
+	</select>
+	
+	<select id="findIndusById" resultType="indus" parameterType="Integer">
+		select * from indus where idtId=#{idtId}
+	</select>
+	
+	<insert id="insertIndus" >
+		insert into indus VALUES(#{idtId},#{idtName});
+	</insert>
+	
+	<delete id="deleteIndusById" parameterType="string">
+       delete from indus where idtId=#{idtId}
+    </delete>
+	
+	
+</mapper>

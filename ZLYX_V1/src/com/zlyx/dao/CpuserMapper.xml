@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlyx.dao.CpuserDao">
+    <select id="findCpuserAll" resultType="cpuser">
+		select * from cpuser;
+	</select>
+	
+	<select id="findCpuserById" resultType="cpuser" parameterType="Integer">
+		select * from cpuser where cpId=#{cpId}
+	</select>
+	
+	<insert id="insertCpuser" >
+		insert into cpuser VALUES(null,#{pwd},#{cpName},#{tel},#{idtId},#{logo},#{check});
+	</insert>
+	
+	<delete id="deleteCpuserById" parameterType="string">
+     	delete from cpuser where cpId=#{cpId}
+    </delete>
+	
+</mapper>

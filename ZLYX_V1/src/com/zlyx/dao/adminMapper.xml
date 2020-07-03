@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlyx.dao.AdminDao">
+    <select id="findAdminAll" resultType="admin">
+		select * from admin;
+	</select>
+	
+	<select id="countResume" resultType="String">
+		SELECT COUNT(*) FROM resume;
+	</select>
+	<select id="countCpuser" resultType="String">
+		SELECT COUNT(*) FROM cpuser;
+	</select>
+	<select id="countCduser" resultType="String">
+		SELECT COUNT(*) FROM cduser;
+	</select>	
+	<select id="countIndus" resultType="String">
+		SELECT COUNT(*) FROM indus;
+	</select>
+	
+	<select id="findAdminByName" resultType="admin" parameterType="String">
+		select * from admin where userName=#{userName}
+	</select>
+	
+	<insert id="insertAdmin" >
+		insert into admin VALUES(null,#{userName},#{pwd});
+	</insert>
+	
+	<delete id="deleteAdminByName" parameterType="string">
+        delete from admin where userName=#{userName}
+    </delete>
+	
+	
+</mapper>
