@@ -1,6 +1,5 @@
 package com.zlyx.entity;
 
-import java.sql.Blob;
 
 public class Cduser {
 	private Integer cdId;

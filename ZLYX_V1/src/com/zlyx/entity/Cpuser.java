@@ -9,6 +9,13 @@ public class Cpuser {
 	 private Integer idtId;
 	 private byte[] logo;
 	 private String check ;
+	 private Indus indus;
+	public Indus getIndus() {
+		return indus;
+	}
+	public void setIndus(Indus indus) {
+		this.indus = indus;
+	}
 	public Integer getCpId() {
 		return cpId;
 	}
@@ -19,7 +26,7 @@ public class Cpuser {
 		return pwd;
 	}
 	public void setPwd(String pwd) {
-		pwd = pwd;
+		this.pwd = pwd;
 	}
 	public String getCpName() {
 		return cpName;
@@ -31,7 +38,7 @@ public class Cpuser {
 		return tel;
 	}
 	public void setTel(String tel) {
-		tel = tel;
+		this.tel = tel;
 	}
 	public Integer getIdtId() {
 		return idtId;

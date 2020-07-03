@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zlyx.dao.CpuserDao">
+<mapper namespace="com.zlyx.dao.CpuserDao">  
+
+	<resultMap type="cpuser" id="cpInMap">
+		<id column="cpId" property="cpId"/>
+		<result column="pwd" property="pwd"/>
+		<result column="cpName" property="cpName"/>
+		<result column="tel" property="tel"/>
+		<result column="idtId" property="idtId"/>
+		<result column="logo" property="logo"/>
+		<result column="check" property="check"/>
+		<association property="indus" javaType="com.zlyx.entity.Indus" column="idtId">
+			<id column="idtId" property="idtId"/>
+			<result column="idtName" property="idtName"/>
+		</association>
+	</resultMap>
+	<select id="findCpuserWithIdt" resultMap="cpInMap">
+		SELECT * FROM cpuser cp LEFT JOIN indus i ON cp.idtId=i.idtId;
+	</select>
+
     <select id="findCpuserAll" resultType="cpuser">
 		select * from cpuser;
 	</select>

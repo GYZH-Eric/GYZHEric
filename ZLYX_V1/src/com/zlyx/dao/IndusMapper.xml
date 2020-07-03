@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zlyx.dao.IndusDao">
     <select id="findIndusAll" resultType="indus">
-		select * from indus;
+		SELECT *,(SELECT COUNT(*) FROM cpuser cp WHERE i.idtId=cp.idtId) AS cpNum FROM indus i;
 	</select>
 	
 	<select id="findIndusById" resultType="indus" parameterType="Integer">
