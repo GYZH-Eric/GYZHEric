@@ -16,22 +16,22 @@
 </head>
 <body>
 <div class="layui-form layuimini-form">
-    <div class="layui-form-item">
-        <label class="layui-form-label required">用户名</label>
+	<div class="layui-form-item">
+        <label class="layui-form-label required">ID</label>
         <div class="layui-input-block">
-            <input type="text" name="cdName" id="cdName" lay-verify="required" lay-reqtext="用户名不能为空" placeholder="请输入用户名" value="" class="layui-input">
+            <input type="text" name="idtId" id="idtId" lay-verify="required" lay-reqtext="ID不能为空" placeholder="请输入ID" value="" class="layui-input" readonly="readonly">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label required">密码</label>
+        <label class="layui-form-label required">行业类型</label>
         <div class="layui-input-block">
-            <input type="text" name="pwd" id="pwd" lay-verify="required" lay-reqtext="密码不能为空" placeholder="请输入密码" value="" class="layui-input">
+            <input type="text" name="idtName" id="idtName" lay-verify="required" lay-reqtext="名不能为空" placeholder="请输入行业名" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label required">手机</label>
+        <label class="layui-form-label required">企业数量</label>
         <div class="layui-input-block">
-            <input type="text" name="tel" id="tel" lay-verify="required" lay-reqtext="手机不能为空" placeholder="请输入手机" value="" class="layui-input">
+            <input type="text" name="cpNum" id="cpNum" lay-verify="required" placeholder="请输入数量" value="" class="layui-input" readonly="readonly">
         </div>
     </div>
     <div class="layui-form-item layui-form-text">
@@ -47,6 +47,7 @@
         </div>
     </div>
 </div>
+</div>
 <script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script>
     layui.use(['form'], function () {
@@ -56,7 +57,7 @@
 
         //监听提交
         form.on('submit(saveBtn)', function (data) {
-        	var url="../../../addCd.do";
+        	var url="../../../updateIn.do";
 			$.post(url,data.field,function(txt){
 				if(txt=="ok"){
 					var iframeIndex = parent.layer.getFrameIndex(window.name);

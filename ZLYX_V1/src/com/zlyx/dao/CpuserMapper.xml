@@ -10,7 +10,7 @@
 		<result column="tel" property="tel"/>
 		<result column="idtId" property="idtId"/>
 		<result column="logo" property="logo"/>
-		<result column="check" property="check"/>
+		<result column="che" property="che"/>
 		<association property="indus" javaType="com.zlyx.entity.Indus" column="idtId">
 			<id column="idtId" property="idtId"/>
 			<result column="idtName" property="idtName"/>
@@ -29,11 +29,15 @@
 	</select>
 	
 	<insert id="insertCpuser" >
-		insert into cpuser VALUES(null,#{pwd},#{cpName},#{tel},#{idtId},#{logo},#{check});
+		insert into cpuser VALUES(null,#{pwd},#{cpName},#{tel},#{idtId},#{logo},#{che});
 	</insert>
 	
-	<delete id="deleteCpuserById" parameterType="string">
+	<delete id="deleteCpuserById" parameterType="Integer">
      	delete from cpuser where cpId=#{cpId}
     </delete>
+    
+    <update id="updateCpuser">
+		UPDATE cpuser SET cpName=#{cpName},tel=#{tel},che=#{che} WHERE cpId=#{cpId}
+	</update>
 	
 </mapper>

@@ -17,21 +17,36 @@
 <body>
 <div class="layui-form layuimini-form">
     <div class="layui-form-item">
-        <label class="layui-form-label required">用户名</label>
+        <label class="layui-form-label required">ID</label>
         <div class="layui-input-block">
-            <input type="text" name="cdName" id="cdName" lay-verify="required" lay-reqtext="用户名不能为空" placeholder="请输入用户名" value="" class="layui-input">
+            <input type="text" name="cpId" id="cpId" lay-verify="required" lay-reqtext="ID不可修改" placeholder="请输入ID" value="" class="layui-input"  readonly="readonly">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label required">密码</label>
+        <label class="layui-form-label required">用户名</label>
         <div class="layui-input-block">
-            <input type="text" name="pwd" id="pwd" lay-verify="required" lay-reqtext="密码不能为空" placeholder="请输入密码" value="" class="layui-input">
+            <input type="text" name="cpName" id="cpName" lay-verify="required" lay-reqtext="用户名不能为空" placeholder="请输入用户名" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label required">手机</label>
         <div class="layui-input-block">
             <input type="text" name="tel" id="tel" lay-verify="required" lay-reqtext="手机不能为空" placeholder="请输入手机" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">行业类别</label>
+        <div class="layui-input-block">
+            <input type="text" name="idtName" id="idtName" lay-verify="required" lay-reqtext="行业不能为空" placeholder="请输入行业类别" value="" class="layui-input" readonly="readonly">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">验证状态</label>
+        <div class="layui-input-block">
+            <select name="che" id="che">
+				<option value="1">已验证</option>
+				<option value="2">未验证</option>
+            </select>
         </div>
     </div>
     <div class="layui-form-item layui-form-text">
@@ -47,6 +62,7 @@
         </div>
     </div>
 </div>
+</div>
 <script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script>
     layui.use(['form'], function () {
@@ -54,9 +70,9 @@
             layer = layui.layer,
             $ = layui.$;
 
-        //监听提交
+      	//监听提交
         form.on('submit(saveBtn)', function (data) {
-        	var url="../../../addCd.do";
+        	var url="../../../updateCp.do";
 			$.post(url,data.field,function(txt){
 				if(txt=="ok"){
 					var iframeIndex = parent.layer.getFrameIndex(window.name);
@@ -64,7 +80,7 @@
 	                window.parent.location.reload();
 				}
 			});
-            return false;
+			return false;
         });
 
     });

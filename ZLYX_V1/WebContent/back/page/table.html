@@ -131,7 +131,15 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: '../page/table/edit.html',
+                    content: '../page/table/editCd.html',
+                    success: function(layero, index){
+                        console.log(layero, index);
+                        var body = layer.getChildFrame('body', index);
+                        body.find("#cdId").val(data.cdId);
+                        body.find("#cdName").val(data.cdName);
+                        body.find("#tel").val(data.tel);
+                        layui.form.render();
+                    }
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
@@ -140,6 +148,12 @@
             } else if (obj.event === 'delete') {
                 layer.confirm('真的删除行么', function (index) {
                     obj.del();
+                    var url="../../delCd.do";
+        			$.post(url,data,function(txt){
+        				if(txt=="ok"){
+        	                window.location.reload();
+        				}
+        			});
                     layer.close(index);
                 });
             }

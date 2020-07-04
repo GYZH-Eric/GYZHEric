@@ -24,4 +24,25 @@ public class CduserController {
     	List<Cduser> list = cdDao.findCduserAll();
     	return new Grid(0,"ok",list.size(),list);
     }
+    
+    @RequestMapping("updateCd")
+    @ResponseBody
+    public String updateCd(Cduser cduser) {
+    	cdDao.updateCduser(cduser);
+    	return "ok";
+    }
+    
+    @RequestMapping("delCd")
+    @ResponseBody
+    public String delCd(Cduser cduser) {
+    	cdDao.deleteCduserById(cduser.getCdId());
+    	return "ok";
+    }
+    
+    @RequestMapping("addCd")
+    @ResponseBody
+    public String addCd(Cduser cduser) {
+    	cdDao.insertCduser(cduser);
+    	return "ok";
+    }
 }

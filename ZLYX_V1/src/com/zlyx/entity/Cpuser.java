@@ -8,7 +8,7 @@ public class Cpuser {
 	 private String tel;
 	 private Integer idtId;
 	 private byte[] logo;
-	 private String check ;
+	 private String che;
 	 private Indus indus;
 	public Indus getIndus() {
 		return indus;
@@ -52,11 +52,11 @@ public class Cpuser {
 	public void setLogo(byte[] logo) {
 		this.logo = logo;
 	}
-	public String getCheck() {
-		return check;
+	public String getChe() {
+		return che;
 	}
-	public void setCheck(String check) {
-		this.check = check;
+	public void setChe(String che) {
+		this.che = che;
 	}
 	 
 }

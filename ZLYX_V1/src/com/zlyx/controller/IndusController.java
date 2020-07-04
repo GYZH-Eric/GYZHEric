@@ -24,4 +24,24 @@ public class IndusController {
 		return new Grid(0,"ok",list.size(),list);
 	}
 	
+	@RequestMapping("updateIn")
+    @ResponseBody
+    public String updateIn(Indus indus) {
+    	idao.updateIndus(indus);
+    	return "ok";
+    }
+	
+	@RequestMapping("delIn")
+    @ResponseBody
+    public String delCd(Indus indus) {
+    	idao.deleteIndusById(indus.getIdtId());
+    	return "ok";
+    }
+	
+	@RequestMapping("addIn")
+    @ResponseBody
+    public String addCd(Indus indus) {
+    	idao.insertIndus(indus);
+    	return "ok";
+    }
 }

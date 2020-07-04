@@ -201,17 +201,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
                         </div>
                         <div class="layuimini-notice">
-                            <div class="layuimini-notice-title">新增系统404模板</div>
-                            <div class="layuimini-notice-extra">2019-07-11 12:57</div>
+                            <div class="layuimini-notice-title">模块完善</div>
+                            <div class="layuimini-notice-extra">2020-7-4 22:59</div>
                             <div class="layuimini-notice-content layui-hide">
-                                界面足够简洁清爽。<br>
-                                一个接口几行代码而已直接初始化整个框架，无需复杂操作。<br>
-                                支持多tab，可以打开多窗口。<br>
-                                支持无限级菜单和对font-awesome图标库的完美支持。<br>
-                                失效以及报错菜单无法直接打开，并给出弹出层提示完美的线上用户体验。<br>
-                                url地址hash定位，可以清楚看到当前tab的地址信息。<br>
-                                刷新页面会保留当前的窗口，并且会定位当前窗口对应左侧菜单栏。<br>
-                                移动端的友好支持。<br>
+                                今天完善了功能魔魁啊<br>
+                                表格显示和操作<br>
+                                意想不到的问题层出不穷<br>
+                                不知道明天能不能完成这个后台页面<br>
                             </div>
                         </div>
                         <div class="layuimini-notice">

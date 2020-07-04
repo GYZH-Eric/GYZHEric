@@ -25,4 +25,24 @@ public class CpuserController {
 		return new Grid(0,"ok",list.size(),list);
 	}
 	
+	@RequestMapping("updateCp")
+    @ResponseBody
+    public String updateCp(Cpuser cpuser) {
+    	cpDao.updateCpuser(cpuser);
+    	return "ok";
+    }
+	
+	@RequestMapping("delCp")
+    @ResponseBody
+    public String delCd(Cpuser cpuser) {
+    	cpDao.deleteCpuserById(cpuser.getCpId());
+    	return "ok";
+    }
+	
+	@RequestMapping("addCp")
+    @ResponseBody
+    public String addCd(Cpuser cpuser) {
+    	cpDao.insertCpuser(cpuser);
+    	return "ok";
+    }
 }

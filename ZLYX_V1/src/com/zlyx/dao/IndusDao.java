@@ -7,7 +7,8 @@ import com.zlyx.entity.Indus;
 
 public interface IndusDao {
 	public List<Indus> findIndusAll();
-	public Indus findIndusById(String idtId);
+	public Indus findIndusById(Integer idtId);
 	public int insertIndus(Indus indus);
-	public Indus deleteIndusById(String idtId);
+	public Indus deleteIndusById(Integer idtId);
+	public int updateIndus(Indus indus);
 }

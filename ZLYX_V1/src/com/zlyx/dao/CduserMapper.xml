@@ -14,8 +14,12 @@
 		insert into cduser VALUES(null,#{cdName},#{pwd},#{tel},#{photo});
 	</insert>
 	
-	<delete id="deleteCduserById" parameterType="string">
+	<delete id="deleteCduserById" parameterType="Integer">
      	delete from cduser where cdId=#{cdId}
     </delete>
+	
+	<update id="updateCduser">
+		UPDATE cduser SET cdName=#{cdName},tel=#{tel} WHERE cdId=#{cdId}
+	</update>
 	
 </mapper>

@@ -28,7 +28,7 @@
             </div>
         </script>
 		 
-		<table class="layui-hide" id="LAY_table_user" lay-filter="user"></table> 
+		<table class="layui-hide" id="LAY_table_user" lay-filter="currentTableFilter"></table> 
 		
 		<script type="text/html" id="currentTableBar">
             <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
@@ -41,62 +41,162 @@
 <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script>
 layui.use('table', function(){
-  var table = layui.table;
+	var $ = layui.jquery,
+    	form = layui.form,
+    	layer = layui.layer,
+    	table = layui.table;
   
-  //方法级渲染
-  table.render({
-    elem: '#LAY_table_user',
-    url: '../../cpList.do',
-    id: 'testReload',
-    toolbar: '#toolbarDemo',
-    defaultToolbar: ['filter', 'exports', 'print'],
-    cols: [[
-    	{type: "checkbox", width: 50},
-        {field: 'cpId', width: 200, title: 'ID', sort: true},
-        {field: 'cpName', width: 200, title: '用户名'},
-        {field: 'tel', width: 200, title: '电话'},
-        {field:'idtName',title:'行业类别',width:200,templet:function(cd){
-			var cv=cd.indus.idtName;
-			return cv;
-		}},
-		{field: 'check', width: 200, title: '验证状态',templet:function(cd){
-			if(cd.check==2)
-				return "<span style=' color:red;'>"+"未验证"+"</span>";
-			else
-				return "<span style=' color:blue;'>"+"已验证"+"</span>";
-		},sort: true},
-        {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
-    ]],
-    page: {
-          layout: [ 'prev','page','next','skip','count'] //自定义分页布局
-		  ,limit:10 //一页显示多少条
-		  ,limits:[5,10,15]//每页条数的选择项
-		  ,groups: 1 
-	}
-  });
+	  //方法级渲染
+	  table.render({
+	    elem: '#LAY_table_user',
+	    url: '../../cpList.do',
+	    id: 'testReload',
+	    toolbar: '#toolbarDemo',
+	    defaultToolbar: ['filter', 'exports', 'print'],
+	    cols: [[
+	    	{type: "checkbox", width: 50},
+	        {field: 'cpId', width: 200, title: 'ID', sort: true},
+	        {field: 'cpName', width: 200, title: '用户名'},
+	        {field: 'tel', width: 200, title: '电话'},
+	        {field:'idtName',title:'行业类别',width:200,templet:function(cd){
+				var cv=cd.indus.idtName;
+				return cv;
+			}},
+			{field: 'che', width: 200, title: '验证状态',templet:function(cd){
+				if(cd.che==2)
+					return "<span style=' color:red;'>"+"未验证"+"</span>";
+				else
+					return "<span style=' color:blue;'>"+"已验证"+"</span>";
+			},sort: true},
+	        {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
+	    ]],
+	    page: {
+	          layout: [ 'prev','page','next','skip','count'] //自定义分页布局
+			  ,limit:10 //一页显示多少条
+			  ,limits:[5,10,15]//每页条数的选择项
+			  ,groups: 1 
+		}
+	  });
   
-  var $ = layui.$, active = {
-    reload: function(){
-      var demoReload = $('#demoReload');
-      
-      //执行重载
-      table.reload('testReload', {
-        page: {
-          curr: 1 //重新从第 1 页开始
-        }
-        ,where: {
-          key: {
-            id: demoReload.val()
-          }
-        }
-      }, 'data');
-    }
-  };
-  
-  $('.demoTable .layui-btn').on('click', function(){
-    var type = $(this).data('type');
-    active[type] ? active[type].call(this) : '';
-  });
+	//监听搜索操作
+	  var $ = layui.$, active = {
+		    reload: function(){
+		      var demoReload = $('#demoReload');
+		      layer.alert(demoReload.val(), {
+	              title: '最终的搜索信息'
+	         });
+		      //执行重载
+		      table.reload('testReload', {
+		        page: {
+		          curr: 1 //重新从第 1 页开始
+		        }
+		        ,where: {
+		          key: {
+		            id: demoReload.val()
+		          }
+		        }
+		      }, 'data');
+		    }
+		  };
+		  
+		  $('.demoTable .layui-btn').on('click', function(){
+		    var type = $(this).data('type');
+		    active[type] ? active[type].call(this) : '';
+		  });
+	
+	  /**
+	   * toolbar监听事件
+	   */
+	  table.on('toolbar(currentTableFilter)', function (obj) {
+	      if (obj.event === 'add') {  // 监听添加操作
+	          var index = layer.open({
+	              title: '添加用户',
+	              type: 2,
+	              shade: 0.2,
+	              maxmin:true,
+	              shadeClose: true,
+	              area: ['100%', '100%'],
+	              content: '../page/table/addCp.html',
+	          });
+	          $(window).on("resize", function () {
+	              layer.full(index);
+	          });
+	      } else if (obj.event === 'delete') {  // 监听删除操作
+	          var checkStatus = table.checkStatus('currentTableId')
+	              , data = checkStatus.data;
+	          layer.alert(JSON.stringify(data));
+	      }
+	  });
+	
+	  //监听表格复选框选择
+	  table.on('checkbox(currentTableFilter)', function (obj) {
+	      console.log(obj)
+	  });
+	
+	  table.on('tool(currentTableFilter)', function (obj) {
+	      var data = obj.data;
+	      if (obj.event === 'edit') {
+
+	          var index = layer.open({
+	              title: '编辑用户',
+	              type: 2,
+	              shade: 0.2,
+	              maxmin:true,
+	              shadeClose: true,
+	              area: ['100%', '100%'],
+	              content: '../page/table/editCp.html',
+	              success: function(layero, index){  
+	                  console.log(layero, index);
+	                  var body = layer.getChildFrame('body', index);
+	                  body.find("#cpId").val(data.cpId);
+	                  body.find("#cpName").val(data.cpName);
+	                  body.find("#tel").val(data.tel);
+	                  body.find("#idtName").val(data.indus.idtName);
+	                  var sel=body.find("#che");
+	              	  sel.find("option[value="+data.che+"]").attr("selected",true);
+	                  layui.form.render();
+	              }
+	          });
+	          $(window).on("resize", function () {
+	              layer.full(index);
+	          });
+	          return false;
+	      } else if (obj.event === 'delete') {
+	          layer.confirm('真的删除行么', function (index) {
+	              obj.del();
+	              var url="../../delCp.do";
+	      			$.post(url,data,function(txt){
+	      				if(txt=="ok"){
+	      	                window.location.reload();
+	      				}
+	      			});
+	              layer.close(index);
+	          });
+	      }
+	  });
+	  
+	 		 var active = {
+			    reload: function(){
+			      var demoReload = $('#demoReload');
+			      
+			      //执行重载
+			      table.reload('testReload', {
+			        page: {
+			          curr: 1 //重新从第 1 页开始
+			        }
+			        ,where: {
+			          key: {
+			            id: demoReload.val()
+			          }
+			        }
+			      }, 'data');
+			    }
+			  };
+			  
+			  $('.demoTable .layui-btn').on('click', function(){
+			    var type = $(this).data('type');
+			    active[type] ? active[type].call(this) : '';
+			  });
 });
 </script>
 

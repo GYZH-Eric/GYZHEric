@@ -10,8 +10,8 @@ public interface CpuserDao {
 	
 	public List<Cpuser> findCpuserWithIdt();
 	public List<Cpuser> findCpuserAll();
-	public Cpuser findCpuserById(String cpId);
+	public Cpuser findCpuserById(Integer cpId);
 	public int insertCpuser(Cpuser cpuser);
-	public Cpuser deleteCpuserById(String cpId);
-	
+	public Cpuser deleteCpuserById(Integer cpId);
+	public int updateCpuser(Cpuser cpuser);
 }
