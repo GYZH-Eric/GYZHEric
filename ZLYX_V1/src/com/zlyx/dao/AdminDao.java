@@ -14,5 +14,5 @@ public interface AdminDao {
 	public String countCduser();
 	public String countCpuser();
 	public String countIndus();
-	
+	public int updateAdmin(Admin admin);
 }

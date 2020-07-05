@@ -24,12 +24,15 @@
 	</select>
 	
 	<insert id="insertAdmin" >
-		insert into admin VALUES(null,#{userName},#{pwd});
+		insert into admin VALUES(null,#{userName},#{pwd},#{tel});
 	</insert>
 	
 	<delete id="deleteAdminByName" parameterType="string">
         delete from admin where userName=#{userName}
     </delete>
 	
+	<update id="updateAdmin">
+		update admin set userName=#{userName},pwd=#{pwd},tel=#{tel} where userId=#{userId}
+	</update>
 	
 </mapper>

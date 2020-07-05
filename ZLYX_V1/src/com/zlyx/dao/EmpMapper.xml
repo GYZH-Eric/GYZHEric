@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlyx.dao.EmpDao">
+    <select id="findEmpAll" resultType="emp">
+		SELECT * FROM emp e,recruit r,cpuser cp,cduser cd WHERE r.recId=e.recId AND cd.cdId=e.cdId AND r.cpId=cp.cpId; 
+	</select>
+	
+	<select id="findEmpById" resultType="emp" parameterType="int">
+		select * from emp where empId=#{empId}
+	</select>
+	
+	<insert id="insertEmp" >
+		insert into emp VALUES(#{empId},#{reId},#{cdId});
+	</insert>
+	
+	<delete id="deleteEmpById" parameterType="int">
+     	delete from emp where empId=#{empId}
+    </delete>
+	
+	<update id="updateEmp">
+		update emp set reId=#{reId},cdId=#{cdId} where empId=#{empId}
+	</update>
+	
+</mapper>

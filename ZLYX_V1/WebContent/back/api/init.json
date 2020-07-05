@@ -23,7 +23,7 @@
         },
         {
           "title": "辅信息页",
-          "href": "page/welcome-2.html",
+          "href": "../showWelcome2.do",
           "icon": "fa fa-tachometer",
           "target": "_self"
         },
@@ -80,9 +80,9 @@
           "target": "_self"
         },
       	{
-          "title": "菜单管理",
-          "href": "page/form.html",
-          "icon": "fa fa-window-maximize",
+          "title": "雇佣信息",
+          "href": "page/table6.html",
+          "icon": "fa fa-file-text",
           "target": "_self"
         }
       ]

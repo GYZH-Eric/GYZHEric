@@ -6,11 +6,17 @@
   	<typeAlias type="com.zlyx.entity.Cduser" alias="cduser"/>
   	<typeAlias type="com.zlyx.entity.Cpuser" alias="cpuser"/>
   	<typeAlias type="com.zlyx.entity.Indus" alias="indus"/>
+  	<typeAlias type="com.zlyx.entity.Emp" alias="emp"/>
+  	<typeAlias type="com.zlyx.entity.Recruit" alias="recruit"/>
+  	<typeAlias type="com.zlyx.entity.Resume" alias="resume"/>
   </typeAliases>
   <mappers>
     <mapper resource="com/zlyx/dao/CduserMapper.xml"/>
     <mapper resource="com/zlyx/dao/CpuserMapper.xml"/>
     <mapper resource="com/zlyx/dao/IndusMapper.xml"/>
     <mapper resource="com/zlyx/dao/adminMapper.xml"/>
+    <mapper resource="com/zlyx/dao/EmpMapper.xml"/>
+    <mapper resource="com/zlyx/dao/RecruitMapper.xml"/>
+    <mapper resource="com/zlyx/dao/ResumeMapper.xml"/>
   </mappers>
 </configuration>

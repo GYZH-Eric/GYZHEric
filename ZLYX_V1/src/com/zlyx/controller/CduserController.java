@@ -11,6 +11,7 @@ import com.zlyx.dao.CduserDao;
 import com.zlyx.entity.Cduser;
 import com.zlyx.entity.Grid;
 
+
 @Controller
 public class CduserController {
 
@@ -24,6 +25,13 @@ public class CduserController {
     	List<Cduser> list = cdDao.findCduserAll();
     	return new Grid(0,"ok",list.size(),list);
     }
+    
+    @RequestMapping("showCduser")
+	@ResponseBody
+	public Grid fun2(Integer cdId) throws Exception{
+		List<Cduser> slist=cdDao.findCduserById(cdId);
+		return new Grid(0,"ok",slist.size(),slist);
+	}
     
     @RequestMapping("updateCd")
     @ResponseBody

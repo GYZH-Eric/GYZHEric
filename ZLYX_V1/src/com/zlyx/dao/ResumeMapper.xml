@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlyx.dao.ResumeDao">
+	<resultMap type="resume" id="resMap">
+		<id column="reId" property="reId"/>
+		<result column="cdId" property="cdId"/>
+		<result column="cdSex" property="cdSex"/>
+		<result column="address" property="address"/>
+		<result column="pos" property="pos"/>
+		<result column="infor" property="infor"/>
+		<association property="cduser" javaType="com.zlyx.entity.Cduser" column="cdId">
+			<id column="cdId" property="cdId"/>
+			<result column="cdName" property="cdName"/>
+			<result column="tel" property="tel"/>
+			<result column="photo" property="photo"/>
+		</association>
+	</resultMap>
+    <select id="findResumeAll" resultMap="resMap">
+		SELECT * FROM RESUME r LEFT JOIN cduser c ON r.cdId=c.cdId;
+	</select>
+	
+	<select id="findResumeById" resultType="resume" parameterType="int">
+		select * from resume where reId=#{reId}
+	</select>
+	
+	<insert id="insertResume" >
+		insert into resume VALUES(#{reId},#{cdName},#{cdId},#{cdSex},#{tel},#{address},#{pos},#{Infor});
+	</insert>
+	
+	<delete id="deleteResumeById" parameterType="int">
+     	delete from resume where reId=#{reId}
+    </delete>
+	
+	<update id="updateResume">
+		update resume set cdId=#{cdId},cdSex=#{cdSex},address=#{address},pos=#{pos},Infor=#{Infor} where reId=#{reId}
+	</update>
+	
+</mapper>

@@ -28,6 +28,10 @@
 		select * from cpuser where cpId=#{cpId}
 	</select>
 	
+	<select id="findCpuserByIn" resultType="cpuser" parameterType="Integer">
+		select * from cpuser where idtId=#{idtId}
+	</select>
+	
 	<insert id="insertCpuser" >
 		insert into cpuser VALUES(null,#{pwd},#{cpName},#{tel},#{idtId},#{logo},#{che});
 	</insert>

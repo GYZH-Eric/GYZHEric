@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlyx.dao.RecruitDao">
+	<resultMap type="recruit" id="recMap">
+		<id column="recId" property="recId"/>
+		<result column="cpId" property="cpId"/>
+		<result column="rPos" property="rPos"/>
+		<result column="rInfor" property="rInfor"/>
+		<result column="sal" property="sal"/>
+		<result column="address" property="address"/>
+		<association property="cpuser" javaType="com.zlyx.entity.Cpuser" column="cpId">
+			<id column="cpId" property="cpId"/>
+			<result column="cpName" property="cpName"/>
+			<result column="tel" property="tel"/>
+			<result column="logo" property="logo"/>
+		</association>
+	</resultMap>
+    <select id="findRecruitAll" resultMap="recMap">
+		SELECT * FROM recruit r LEFT JOIN cpuser c ON r.cpId=c.cpId;
+	</select>
+	
+	<select id="findRecruitById" resultType="resume" parameterType="int">
+		select * from recruit where recId=#{recId}
+	</select>
+	
+	<insert id="insertRecruit" >
+		insert into recruit VALUES(#{recId},#{cpId},#{rPos},#{rInfor},#{sal},#{address});
+	</insert>
+	
+	<delete id="deleteRecruitById" parameterType="int">
+     	delete from recruit where recId=#{recId}
+    </delete>
+	
+	<update id="updateRecruit">
+		update recruit set cpId=#{cpId},rPos=#{rPos},rInfor=#{rInfor},sal=#{sal},address=#{address} where recId=#{recId}
+	</update>
+	
+</mapper>

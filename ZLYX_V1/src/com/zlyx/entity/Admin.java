@@ -5,6 +5,13 @@ public class Admin {
 	private Integer userId;
 	private String userName;
 	private String pwd;
+	private String tel;
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
 	public Integer getUserId() {
 		return userId;
 	}

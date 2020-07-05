@@ -25,7 +25,12 @@ public class AdminController {
 	@Autowired
 	private AdminDao aDao;
 	
-	
+	@RequestMapping("showUser")
+	@ResponseBody
+	public Admin showUser(String userName) {
+		Admin admin = aDao.findAdminByName(userName);
+		return admin;
+	}
 	
 	//处理登录请求的方法 处理post请求
     @RequestMapping("login")
@@ -59,4 +64,23 @@ public class AdminController {
     	return "/back/page/welcome";
     }
     
+    @RequestMapping("showWelcome2")
+    public String showWelcome2(ModelMap map) {
+    	String cdNum=aDao.countCduser();
+    	String cpNum=aDao.countCpuser();
+    	String iNum=aDao.countIndus();
+    	String rNum=aDao.countResume();
+    	map.addAttribute("cdNum", cdNum);
+    	map.addAttribute("cpNum", cpNum);
+    	map.addAttribute("iNum", iNum);
+    	map.addAttribute("rNum", rNum);
+    	return "/back/page/welcome2";
+    }
+    
+    @RequestMapping("updateAdmin")
+	@ResponseBody
+	public String fun4(Admin admin)throws Exception{
+		aDao.updateAdmin(admin);
+		return "ok";
+	}
 }

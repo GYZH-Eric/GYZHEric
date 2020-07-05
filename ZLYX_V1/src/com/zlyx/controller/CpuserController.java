@@ -11,6 +11,7 @@ import com.zlyx.dao.CpuserDao;
 import com.zlyx.entity.Cpuser;
 import com.zlyx.entity.Grid;
 
+
 @Controller
 public class CpuserController {
 
@@ -23,6 +24,13 @@ public class CpuserController {
 	public Grid cpList() {
 		List<Cpuser> list = cpDao.findCpuserWithIdt();
 		return new Grid(0,"ok",list.size(),list);
+	}
+	
+	@RequestMapping("showCpuser")
+	@ResponseBody
+	public Grid fun2(Integer cpId) throws Exception{
+		List<Cpuser> slist=cpDao.findCpuserById(cpId);
+		return new Grid(0,"ok",slist.size(),slist);
 	}
 	
 	@RequestMapping("updateCp")

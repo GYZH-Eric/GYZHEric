@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <input type="password" name="pwd" placeholder="请输入密码" autocomplete="off" class="layui-input admin-input" value="123456">
             </div>
             <div>
-                <input type="text" name="captcha" placeholder="请输入验证码" autocomplete="off" class="layui-input admin-input admin-input-verify" value="xszg">
+                <input type="text" name="captcha" placeholder="请输入验证码" autocomplete="off" class="layui-input admin-input admin-input-verify">
                 <img class="admin-captcha" width="90" height="30" src="back/images/captcha.jpg">
             </div>
             <button class="layui-btn admin-button" lay-submit="" lay-filter="login">登 陆</button>
@@ -85,8 +85,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 layer.msg('密码不能为空');
                 return false;
             }
-            if (data.captcha == '') {
-                layer.msg('验证码不能为空');
+            if (data.captcha == ''||data.captcha!='xszg') {
+                layer.msg('验证码错误');
                 return false;
             }
     		var url="login.do";

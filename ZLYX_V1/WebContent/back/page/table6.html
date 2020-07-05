@@ -49,25 +49,16 @@ layui.use('table', function(){
   //方法级渲染
   table.render({
     elem: '#LAY_table_user',
-    url: '../../recList.do',
+    url: '../../empList.do',
     id: 'testReload',
     toolbar: '#toolbarDemo',
     defaultToolbar: ['filter', 'exports', 'print'],
     cols: [[
     	{type: "checkbox", width: 50},
-        {field: 'recId', width: 100, title: 'ID', sort: true},
-        {field:'cpName',title:'企业名',width:150,templet:function(cd){
-			var cv=cd.cpuser.cpName;
-			return cv;
-		}},
-		{field:'tel',title:'电话',width:150,templet:function(cd){
-			var cv=cd.cpuser.tel;
-			return cv;
-		}},
-        {field: 'sal', width: 150, title: '薪水'},
-        {field: 'address', width: 150, title: '地址'},
-        {field: 'rPos', width: 150, title: '职位'},
-        {field: 'rInfor', width: 200, title: '信息'},
+        {field: 'empId', width: 200, title: 'ID', sort: true},
+        {field: 'recId', width: 200, title: '招聘ID'},
+        {field: 'cdName', width: 200, title: '用户姓名'},
+        {field: 'cpName', width: 200, title: '企业名'},
         {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
     ]],
     page: {
@@ -90,7 +81,7 @@ layui.use('table', function(){
               maxmin:true,
               shadeClose: true,
               area: ['100%', '100%'],
-              content: '../page/table/addRec.html',
+              content: '../page/table/addEmp.html',
           });
           $(window).on("resize", function () {
               layer.full(index);
@@ -118,16 +109,13 @@ layui.use('table', function(){
               maxmin:true,
               shadeClose: true,
               area: ['100%', '100%'],
-              content: '../page/table/editRec.html',
+              content: '../page/table/editEmp.html',
               success: function(layero, index){  
                   console.log(layero, index);
                   var body = layer.getChildFrame('body', index);
+                  body.find("#empId").val(data.recId);
+                  body.find("#cdId").val(data.cdId);
                   body.find("#recId").val(data.recId);
-                  body.find("#cpId").val(data.cpuser.cpId);
-                  body.find("#address").val(data.address);
-                  body.find("#rPos").val(data.rPos);
-                  body.find("#rInfor").val(data.rInfor);
-                  body.find("#sal").val(data.sal);
                   layui.form.render();
               }
           });
@@ -138,7 +126,7 @@ layui.use('table', function(){
       } else if (obj.event === 'delete') {
           layer.confirm('真的删除行么', function (index) {
               obj.del();
-              var url="../../delRec.do";
+              var url="../../delEmp.do";
       			$.post(url,data,function(txt){
       				if(txt=="ok"){
       	                window.location.reload();
@@ -154,12 +142,12 @@ layui.use('table', function(){
       var demoReload = $('#demoReload');
       //执行重载
       table.reload('testReload', {
-    	url: '../../showRecruit.do',
+    	url: '../../showEmp.do',
         page: {
           curr: 1 //重新从第 1 页开始
         }
         ,where: {
-            recId: demoReload.val()
+            empId: demoReload.val()
         }
       });
     }
