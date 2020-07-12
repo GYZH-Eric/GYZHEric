@@ -118,43 +118,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <div class="welcome-module">
                                     <div class="layui-row layui-col-space10 layuimini-qiuck">
                                         <div class="layui-col-xs3 layuimini-qiuck-module">
-                                            <a href="javascript:;" layuimini-content-href="back/page/menu.html" data-title="菜单管理" data-icon="fa fa-window-maximize">
+                                            <a href="javascript:;" layuimini-content-href="page/menu.html" data-title="菜单管理" data-icon="fa fa-window-maximize">
                                                 <i class="fa fa-window-maximize"></i>
                                                 <cite>菜单管理</cite>
                                             </a>
                                         </div>
                                         <div class="layui-col-xs3 layuimini-qiuck-module">
-                                            <a href="javascript:;" layuimini-content-href="back/page/setting.html" data-title="系统设置" data-icon="fa fa-gears">
+                                            <a href="javascript:;" layuimini-content-href="page/setting.html" data-title="系统设置" data-icon="fa fa-gears">
                                                 <i class="fa fa-gears"></i>
                                                 <cite>系统设置</cite>
                                             </a>
                                         </div>
                                         <div class="layui-col-xs3 layuimini-qiuck-module">
-                                            <a href="javascript:;" layuimini-content-href="back/page/table.html" data-title="求职者管理" data-icon="fa fa-file-text">
+                                            <a href="javascript:;" layuimini-content-href="page/table.html" data-title="求职者管理" data-icon="fa fa-file-text">
                                                 <i class="fa fa-file-text"></i>
                                                 <cite>求职者管理</cite>
                                             </a>
                                         </div>
                                         <div class="layui-col-xs3 layuimini-qiuck-module">
-                                            <a href="javascript:;" layuimini-content-href="back/page/icon.html" data-title="企业管理" data-icon="fa fa-file-text">
+                                            <a href="javascript:;" layuimini-content-href="page/icon.html" data-title="企业管理" data-icon="fa fa-file-text">
                                                 <i class="fa fa-file-text"></i>
                                                 <cite>企业管理</cite>
                                             </a>
                                         </div>
                                         <div class="layui-col-xs3 layuimini-qiuck-module">
-                                            <a href="javascript:;" layuimini-content-href="back/page/form.html" data-title="行业类别" data-icon="fa fa-file-text">
+                                            <a href="javascript:;" layuimini-content-href="page/form.html" data-title="行业类别" data-icon="fa fa-file-text">
                                                 <i class="fa fa-file-text"></i>
                                                 <cite>行业类别</cite>
                                             </a>
                                         </div>
                                         <div class="layui-col-xs3 layuimini-qiuck-module">
-                                            <a href="javascript:;" layuimini-content-href="back/page/404.html" data-title="简历信息" data-icon="fa fa-hourglass-end">
+                                            <a href="javascript:;" layuimini-content-href="page/404.html" data-title="简历信息" data-icon="fa fa-hourglass-end">
                                                 <i class="fa fa-hourglass-end"></i>
                                                 <cite>简历信息</cite>
                                             </a>
                                         </div>
                                         <div class="layui-col-xs3 layuimini-qiuck-module">
-                                            <a href="javascript:;" layuimini-content-href="back/page/button.html" data-title="招聘信息" data-icon="fa fa-hourglass-end">
+                                            <a href="javascript:;" layuimini-content-href="page/button.html" data-title="招聘信息" data-icon="fa fa-hourglass-end">
                                                 <i class="fa fa-hourglass-end"></i>
                                                 <cite>招聘信息</cite>
                                             </a>

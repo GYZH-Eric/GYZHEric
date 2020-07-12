@@ -20,9 +20,10 @@ public class ResumeController {
 	private ResumeDao dao;
 	@RequestMapping("resList")
 	@ResponseBody
-	public Grid fun(ModelMap mp)throws Exception{
+	public Grid fun(ModelMap mp,Integer page,Integer limit)throws Exception{
+		List<Resume> list=dao.findResumePage((page-1)*limit, limit);
 		List<Resume> slist=dao.findResumeAll();
-		return new Grid(0,"ok",slist.size(),slist);
+		return new Grid(0,"ok",slist.size(),list);
 	}
 
 	@RequestMapping("showResume")

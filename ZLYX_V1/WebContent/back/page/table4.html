@@ -68,11 +68,14 @@ layui.use('table', function(){
         {field: 'address', width: 150, title: '地址'},
         {field: 'pos', width: 150, title: '职位'},
         {field: 'infor', width: 200, title: '信息'},
+        {field: 'jobTime', width: 150, title: '从业时间'},
+        {field: 'cdSal', width: 150, title: '预期薪水'},
+        {field: 'cdExp', width: 200, title: '工作经历'},
+        {field: 'email', width: 200, title: '邮箱'},
         {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
     ]],
     page: {
-          layout: [ 'prev','page','next','skip','count'] //自定义分页布局
-		  ,limit:10 //一页显示多少条
+		  limit:10 //一页显示多少条
 		  ,limits:[5,10,15]//每页条数的选择项
 		  ,groups: 1 
 	}
@@ -126,6 +129,10 @@ layui.use('table', function(){
                   body.find("#cdId").val(data.cduser.cdId);
                   body.find("#address").val(data.address);
                   body.find("#pos").val(data.pos);
+                  body.find("#jobTime").val(data.jobTime);
+                  body.find("#cdSal").val(data.cdSal);
+                  body.find("#cdExp").val(data.cdExp);
+                  body.find("#email").val(data.email);
                   body.find("#infor").val(data.infor);
                   var sel=body.find("#cdSex");
               	  sel.find("option[value="+data.cdSex+"]").attr("selected",true);

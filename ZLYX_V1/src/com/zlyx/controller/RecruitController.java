@@ -22,9 +22,10 @@ public class RecruitController {
 	private RecruitDao dao;
 	@RequestMapping("recList")
 	@ResponseBody
-	public Grid fun(ModelMap mp)throws Exception{
+	public Grid fun(ModelMap mp,Integer page,Integer limit)throws Exception{
+		List<Recruit> list=dao.findRecruitPage((page-1)*limit, limit);
 		List<Recruit> slist=dao.findRecruitAll();
-		return new Grid(0,"ok",slist.size(),slist);
+		return new Grid(0,"ok",slist.size(),list);
 	}
 
 	@RequestMapping("showRecruit")

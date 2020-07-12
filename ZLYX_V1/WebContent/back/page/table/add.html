@@ -40,7 +40,18 @@
             <textarea name="remark" class="layui-textarea" placeholder="请输入备注信息"></textarea>
         </div>
     </div>
-
+	<div class="layui-form-item">
+		<label class="layui-form-label">头像</label>
+		<div class="layui-input-inline">
+			<button class="layui-btn" id="upbutton" type="button">
+			<i class="layui-icon">&#xe67c;</i>上传图片
+			</button>
+		</div>
+		<div id="imgbox" style="width: 180px;height: 180px;border: 1px solid;" class="layui-inline">
+			<img alt="" src="upload/picture" style="width: 180px;height: 180px; margin: 5 auto;">
+		</div>
+	</div>
+	
     <div class="layui-form-item">
         <div class="layui-input-block">
             <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
@@ -49,10 +60,11 @@
 </div>
 <script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script>
-    layui.use(['form'], function () {
+    layui.use(['form','upload'], function () {
         var form = layui.form,
             layer = layui.layer,
-            $ = layui.$;
+            $ = layui.$,
+            upload=layui.upload;
 
         //监听提交
         form.on('submit(saveBtn)', function (data) {
@@ -67,6 +79,23 @@
             return false;
         });
 
+        var upper=upload.render({
+			elem:"#upbutton",
+			url:"../../../upCd.do",
+			data: {
+				  id: function(){
+				    return $('#cdName').val();
+				  }
+			},
+			done:function(res){
+				alert("upload/"+res.msg);
+				$("#imgbox img").attr("src","../../../upload/"+res.msg);
+			},
+			error:function(){
+				alert("error");
+			}
+		});
+        
     });
 </script>
 </body>

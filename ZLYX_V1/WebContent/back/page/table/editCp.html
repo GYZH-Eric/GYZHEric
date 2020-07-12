@@ -16,6 +16,11 @@
 </head>
 <body>
 <div class="layui-form layuimini-form">
+	<div class="layui-form-item">
+        <div class="layui-input-block">
+            <img alt="" src="../../../upload/picture.jpg" height="220" width="220" id="picture">
+        </div>
+    </div>
     <div class="layui-form-item">
         <label class="layui-form-label required">ID</label>
         <div class="layui-input-block">
@@ -35,6 +40,12 @@
         </div>
     </div>
     <div class="layui-form-item">
+        <label class="layui-form-label required">email</label>
+        <div class="layui-input-block">
+            <input type="text" name="email" id="email" lay-verify="required" lay-reqtext="手机不能为空" placeholder="请输入手机" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
         <label class="layui-form-label">行业类别</label>
         <div class="layui-input-block">
             <input type="text" name="idtName" id="idtName" lay-verify="required" lay-reqtext="行业不能为空" placeholder="请输入行业类别" value="" class="layui-input" readonly="readonly">
@@ -50,9 +61,9 @@
         </div>
     </div>
     <div class="layui-form-item layui-form-text">
-        <label class="layui-form-label">备注信息</label>
+        <label class="layui-form-label">简介</label>
         <div class="layui-input-block">
-            <textarea name="remark" class="layui-textarea" placeholder="请输入备注信息"></textarea>
+            <textarea name="dis" id="dis" class="layui-textarea" placeholder="请输入备注信息"></textarea>
         </div>
     </div>
 

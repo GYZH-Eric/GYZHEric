@@ -9,6 +9,10 @@
 		<result column="address" property="address"/>
 		<result column="pos" property="pos"/>
 		<result column="infor" property="infor"/>
+		<result column="jobTime" property="jobTime"/>
+		<result column="cdSal" property="cdSal"/>
+		<result column="cdExp" property="cdExp"/>
+		<result column="email" property="email"/>
 		<association property="cduser" javaType="com.zlyx.entity.Cduser" column="cdId">
 			<id column="cdId" property="cdId"/>
 			<result column="cdName" property="cdName"/>
@@ -20,12 +24,24 @@
 		SELECT * FROM RESUME r LEFT JOIN cduser c ON r.cdId=c.cdId;
 	</select>
 	
+	<select id="findResumePage" resultMap="resMap">
+		SELECT * FROM RESUME r LEFT JOIN cduser c ON r.cdId=c.cdId limit #{0},#{1};
+	</select>
+	
+	<select id="findResMapById" resultMap="resMap">
+		SELECT * FROM RESUME r LEFT JOIN cduser c ON r.cdId=c.cdId where reId=#{reId};
+	</select>
+	
+	<select id="findResMapByCd" resultMap="resMap" parameterType="String">
+		SELECT * FROM cduser c LEFT JOIN RESUME r ON r.cdId=c.cdId WHERE cdName=#{cdName};
+	</select>
+	
 	<select id="findResumeById" resultType="resume" parameterType="int">
 		select * from resume where reId=#{reId}
 	</select>
 	
 	<insert id="insertResume" >
-		insert into resume VALUES(#{reId},#{cdName},#{cdId},#{cdSex},#{tel},#{address},#{pos},#{Infor});
+		insert into resume VALUES(#{reId},#{cdId},#{cdSex},#{address},#{pos},#{Infor},#{jobTime},#{cdSal},#{cdExp},#{email});
 	</insert>
 	
 	<delete id="deleteResumeById" parameterType="int">
@@ -33,7 +49,7 @@
     </delete>
 	
 	<update id="updateResume">
-		update resume set cdId=#{cdId},cdSex=#{cdSex},address=#{address},pos=#{pos},Infor=#{Infor} where reId=#{reId}
+		update resume set cdId=#{cdId},cdSex=#{cdSex},address=#{address},pos=#{pos},Infor=#{Infor},jobTime=#{jobTime},cdSal=#{cdSal},cdExp=#{cdExp},email=#{email} where reId=#{reId}
 	</update>
 	
 </mapper>

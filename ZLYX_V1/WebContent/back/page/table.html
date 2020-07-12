@@ -58,8 +58,7 @@
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
             ]],
             page: {
-                layout: [ 'prev','page','next','skip','count'] //自定义分页布局
-	            ,limit:10 //一页显示多少条
+	            limit:10 //一页显示多少条
 	            ,limits:[5,10,15]//每页条数的选择项
 	            ,groups: 1 
       		}
@@ -134,6 +133,7 @@
                         body.find("#cdId").val(data.cdId);
                         body.find("#cdName").val(data.cdName);
                         body.find("#tel").val(data.tel);
+                        body.find("#picture").attr("src","../../../upload/"+data.cdName+".jpg");
                         layui.form.render();
                     }
                 });

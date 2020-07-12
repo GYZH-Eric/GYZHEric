@@ -35,6 +35,12 @@
         </div>
     </div>
     <div class="layui-form-item">
+        <label class="layui-form-label required">email</label>
+        <div class="layui-input-block">
+            <input type="text" name="email" id="email" lay-verify="required" lay-reqtext="手机不能为空" placeholder="请输入手机" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
         <label class="layui-form-label">行业类别</label>
         <div class="layui-input-block">
             <input type="text" name="idtId" id="idtId" lay-verify="required" lay-reqtext="行业不能为空" placeholder="请输入行业类别" value="" class="layui-input">
@@ -50,12 +56,22 @@
         </div>
     </div>
     <div class="layui-form-item layui-form-text">
-        <label class="layui-form-label">备注信息</label>
+        <label class="layui-form-label">简介</label>
         <div class="layui-input-block">
-            <textarea name="remark" class="layui-textarea" placeholder="请输入备注信息"></textarea>
+            <textarea name="dis" id="dis" class="layui-textarea" placeholder="请输入备注信息"></textarea>
         </div>
     </div>
-
+	<div class="layui-form-item">
+		<label class="layui-form-label">logo</label>
+		<div class="layui-input-inline">
+			<button class="layui-btn" id="upbutton" type="button">
+			<i class="layui-icon">&#xe67c;</i>上传图片
+			</button>
+		</div>
+		<div id="imgbox" style="width: 180px;height: 180px;border: 1px solid;" class="layui-inline">
+			<img alt="" src="upload/picture" style="width: 180px;height: 180px; margin: 5 auto;">
+		</div>
+	</div>
     <div class="layui-form-item">
         <div class="layui-input-block">
             <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
@@ -64,10 +80,11 @@
 </div>
 <script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script>
-    layui.use(['form'], function () {
+    layui.use(['form','upload'], function () {
         var form = layui.form,
             layer = layui.layer,
-            $ = layui.$;
+            $ = layui.$
+            upload=layui.upload;
 
         //监听提交
         form.on('submit(saveBtn)', function (data) {
@@ -82,6 +99,23 @@
             return false;
         });
 
+        var upper=upload.render({
+			elem:"#upbutton",
+			url:"../../../upCp.do",
+			data: {
+				  id: function(){
+				    return $('#cpName').val();
+				  }
+			},
+			done:function(res){
+				alert("upload/"+res.msg);
+				$("#imgbox img").attr("src","../../../upload/"+res.msg);
+			},
+			error:function(){
+				alert("error");
+			}
+		});
+        
     });
 </script>
 </body>

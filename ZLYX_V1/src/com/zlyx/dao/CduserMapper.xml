@@ -10,6 +10,14 @@
 		select * from cduser where cdId=#{cdId}
 	</select>
 	
+	<select id="findCduserByName" resultType="cduser" parameterType="string">
+		select * from cduser where cdName=#{cdName}
+	</select>
+	
+	<select id="findCduserPage" resultType="cduser">
+		select * from cduser limit #{0},#{1};
+	</select>
+	
 	<insert id="insertCduser" >
 		insert into cduser VALUES(null,#{cdName},#{pwd},#{tel},#{photo});
 	</insert>

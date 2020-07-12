@@ -9,7 +9,21 @@ public class Cpuser {
 	 private Integer idtId;
 	 private byte[] logo;
 	 private String che;
+	 private String dis;
+	 private String email;
 	 private Indus indus;
+	public String getDis() {
+		return dis;
+	}
+	public void setDis(String dis) {
+		this.dis = dis;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public Indus getIndus() {
 		return indus;
 	}

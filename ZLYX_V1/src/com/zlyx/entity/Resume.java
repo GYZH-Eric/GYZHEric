@@ -7,7 +7,35 @@ public class Resume {
 	private String address;
 	private String pos;
 	private String Infor;
+	private String jobTime;
+	private String cdSal;
+	private String cdExp;
+	private String email;
 	private Cduser cduser;
+	public String getJobTime() {
+		return jobTime;
+	}
+	public void setJobTime(String jobTime) {
+		this.jobTime = jobTime;
+	}
+	public String getCdSal() {
+		return cdSal;
+	}
+	public void setCdSal(String cdSal) {
+		this.cdSal = cdSal;
+	}
+	public String getCdExp() {
+		return cdExp;
+	}
+	public void setCdExp(String cdExp) {
+		this.cdExp = cdExp;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public Cduser getCduser() {
 		return cduser;
 	}

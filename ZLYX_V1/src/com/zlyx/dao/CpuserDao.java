@@ -15,5 +15,6 @@ public interface CpuserDao {
 	public int insertCpuser(Cpuser cpuser);
 	public Cpuser deleteCpuserById(Integer cpId);
 	public int updateCpuser(Cpuser cpuser);
+	public List<Cpuser> findCpuserPage(Integer start,Integer count);
 	
 }

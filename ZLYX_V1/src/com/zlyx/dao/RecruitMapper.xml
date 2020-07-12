@@ -20,6 +20,18 @@
 		SELECT * FROM recruit r LEFT JOIN cpuser c ON r.cpId=c.cpId;
 	</select>
 	
+	<select id="findRecruitPage" resultMap="recMap">
+		SELECT * FROM recruit r LEFT JOIN cpuser c ON r.cpId=c.cpId limit #{0},#{1};
+	</select>
+	
+	<select id="findRecMapById" resultMap="recMap">
+		SELECT * FROM recruit r LEFT JOIN cpuser c ON r.cpId=c.cpId where recId=#{recId};
+	</select>
+	
+	<select id="findRecMapByCp" resultMap="recMap" parameterType="int">
+		SELECT * FROM recruit r LEFT JOIN cpuser c ON r.cpId=c.cpId where r.cpId=#{cpId};
+	</select>
+	
 	<select id="findRecruitById" resultType="resume" parameterType="int">
 		select * from recruit where recId=#{recId}
 	</select>

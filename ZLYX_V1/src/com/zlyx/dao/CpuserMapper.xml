@@ -11,6 +11,8 @@
 		<result column="idtId" property="idtId"/>
 		<result column="logo" property="logo"/>
 		<result column="che" property="che"/>
+		<result column="dis" property="dis"/>
+		<result column="email" property="email"/>
 		<association property="indus" javaType="com.zlyx.entity.Indus" column="idtId">
 			<id column="idtId" property="idtId"/>
 			<result column="idtName" property="idtName"/>
@@ -18,6 +20,10 @@
 	</resultMap>
 	<select id="findCpuserWithIdt" resultMap="cpInMap">
 		SELECT * FROM cpuser cp LEFT JOIN indus i ON cp.idtId=i.idtId;
+	</select>
+	
+	<select id="findCpuserPage" resultMap="cpInMap">
+		SELECT * FROM cpuser cp LEFT JOIN indus i ON cp.idtId=i.idtId limit #{0},#{1};;
 	</select>
 
     <select id="findCpuserAll" resultType="cpuser">
@@ -33,7 +39,7 @@
 	</select>
 	
 	<insert id="insertCpuser" >
-		insert into cpuser VALUES(null,#{pwd},#{cpName},#{tel},#{idtId},#{logo},#{che});
+		insert into cpuser VALUES(null,#{pwd},#{cpName},#{tel},#{idtId},#{logo},#{che},#{dis},#{email});
 	</insert>
 	
 	<delete id="deleteCpuserById" parameterType="Integer">
@@ -41,7 +47,7 @@
     </delete>
     
     <update id="updateCpuser">
-		UPDATE cpuser SET cpName=#{cpName},tel=#{tel},che=#{che} WHERE cpId=#{cpId}
+		UPDATE cpuser SET cpName=#{cpName},tel=#{tel},che=#{che},dis=#{dis},email=#{email} WHERE cpId=#{cpId}
 	</update>
 	
 </mapper>
