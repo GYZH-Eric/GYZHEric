@@ -158,8 +158,9 @@ $(document).ready(function() {
         	var urlS=url;
 			$.post(urlS,data.field,function(txt){
 				if(txt=="ok"){
-					var iframeIndex = parent.layer.getFrameIndex(window.name);
-	                parent.layer.close(iframeIndex);
+					//var iframeIndex = parent.layer.getFrameIndex(window.name);
+	                //parent.layer.close(iframeIndex);
+	                window.location.reload();
 				}
 			});
             return false;

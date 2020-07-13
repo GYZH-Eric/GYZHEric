@@ -149,90 +149,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="widget_search">
                             <h3 class="j-b mb-3">Search</h3>
                             <div class="widget-content">
-                                <form action="#" method="post">
+                                <form class="layui-form">
                                     <div class="form-group">
-                                        <label class="mb-2">I'm looking for a ...</label>
+                                        <label class="mb-2">职位</label>
 
-                                        <select class="form-control jb_1">
-                                            <option value="0">Job</option>
-                                            <option value="">Category1</option>
-                                            <option value="">Category2</option>
-                                            <option value="">Category3</option>
-                                            <option value="">Category4</option>
-                                        </select>
+                                        <input type="text" name="pos" class="form-control jb_2" placeholder="pos" required="">
                                     </div>
                                     <div class="form-group">
-                                        <label class="mb-2">in</label>
+                                        <label class="mb-2">地址</label>
 
-                                        <input type="text" class="form-control jb_2" placeholder="Location" required="">
+                                        <input type="text" name="address" class="form-control jb_2" placeholder="address" required="">
                                     </div>
-                                    <div class="form-group mb-3">
-                                        <input type="text" class="form-control jb_2" placeholder="Industry / Role" required="">
-                                    </div>
-                                    <input type="submit" value="Search">
+                                    <input lay-submit lay-filter="search" type="submit" value="Search">
                                 </form>
                             </div>
-                        </div>
-                        <div class="col_3 permit my-4">
-                            <h3 class="j-b mb-3">Jobs by Category</h3>
-                            <ul class="list_2">
-                                <li>
-                                    <a href="#">Railway Recruitment</a>
-                                </li>
-                                <li>
-                                    <a href="#">Air Force Jobs</a>
-                                </li>
-                                <li>
-                                    <a href="#">Police Jobs</a>
-                                </li>
-                                <li>
-                                    <a href="#">Intelligence Bureau Jobs</a>
-                                </li>
-                                <li>
-                                    <a href="#">Army Jobs</a>
-                                </li>
-                                <li>
-                                    <a href="#">Navy Jobs</a>
-                                </li>
-                                <li>
-                                    <a href="#">BSNL Jobs</a>
-                                </li>
-                                <li>
-                                    <a href="#">Software Jobs</a>
-                                </li>
-                                <li>
-                                    <a href="#">Research Jobs</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col_3 permit">
-                            <h3 class="j-b mb-3">Offerd Salary</h3>
-                            <ul class="list-group candidate-page">
-                                <li class="list-group-item"><input type="checkbox" class="checkbox"> 10k - 20k</li>
-                                <li class="list-group-item"><input type="checkbox" class="checkbox"> 20k - 30k</li>
-                                <li class="list-group-item"><input type="checkbox" class="checkbox"> 30k - 40k</li>
-                                <li class="list-group-item"><input type="checkbox" class="checkbox"> 40k - 50k</li>
-                                <li class="list-group-item"><input type="checkbox" class="checkbox"> 50k - 60k</li>
-                                <li class="list-group-item"><input type="checkbox" class="checkbox"> 60k - 70k</li>
-                            </ul>
-                        </div>
-                        <div class="col_3 experience my-4">
-                            <h3 class="j-b mb-3">Work Experiance</h3>
-                            <ul class="list-group candidate-page">
-                                <li class="list-group-item"><input type="checkbox" class="checkbox"> 1Year to 2Year</li>
-                                <li class="list-group-item"><input type="checkbox" class="checkbox"> 2Year to 3Year</li>
-                                <li class="list-group-item"><input type="checkbox" class="checkbox"> 3Year to 4Year</li>
-                                <li class="list-group-item"><input type="checkbox" class="checkbox"> 4Year to 5Year</li>
-                                <li class="list-group-item"><input type="checkbox" class="checkbox"> 5Year to 6Year</li>
-                            </ul>
-                        </div>
-                        <div class="col_3 permit">
-                            <h3 class="j-b mb-3">Work Permit</h3>
-                            <ul class="list-group candidate-page">
-                                <li class="list-group-item"><input type="checkbox" class="checkbox"> Full Time</li>
-                                <li class="list-group-item"><input type="checkbox" class="checkbox"> Prt Time</li>
-
-                            </ul>
                         </div>
 
                     </div>

@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <form class="layui-form" action="">
             <div>
                 <i class="layui-icon layui-icon-username admin-icon"></i>
-                <input type="text" name="userName" placeholder="请输入用户名" autocomplete="off" class="layui-input admin-input admin-input-username" value="admin01">
+                <input type="text" id="userName" name="userName" placeholder="请输入用户名" autocomplete="off" class="layui-input admin-input admin-input-username" value="admin01">
             </div>
             <div>
                 <i class="layui-icon layui-icon-password admin-icon"></i>
@@ -62,15 +62,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <i class="layui-icon admin-icon" style="color:red">${msg }</i>
             </div>
         </form>
+        <button class="layui-btn admin-button" id="upbutton" type="button">
+			面部识别
+		</button>
     </div>
 </div>
 <script src="back/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script>
-    layui.use(['form','jquery'], function () {
+    layui.use(['form','jquery','upload'], function () {
         var form = layui.form,
             layer = layui.layer,
+            upload=layui.upload,
             $ = layui.jquery;
 
+        $("#upbutton").on("click",function(){
+			layer.open({
+				type: 2,
+				title: '信息详情',
+				closeBtn: 1,
+				shadeClose: true,
+				area:['40%','70%'],
+				btnAlign:'c',
+				content: 'back/page/faceId.html',
+				success: function(layero, index){
+					
+				}
+			});
+		})
+       
+        
         // 登录过期的时候，跳出ifram框架
         if (top.location != self.location) top.location = self.location;
 

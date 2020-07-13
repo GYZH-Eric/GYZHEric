@@ -134,28 +134,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <form action="#" method="post" class="ban-form row">
                     <div class="col-md-3 banf">
-                        <input class="form-control" type="text" name="Name" placeholder="Name" required="">
+                        <input class="form-control" type="text" name="Name" placeholder="公司名" required="">
                     </div>
                     <div class="col-md-3 banf">
                         <select class="form-control" id="country12">
-                            <option>Location</option>
-                            <option>Afghanistan</option>
-                            <option>Alaska</option>
-                            <option>Andong</option>
-                            <option>Bologna</option>
-                            <option>Canada</option>
-                            <option>France</option>
-                            <option>Germany</option>
+                            <option>地址</option>
+                            <option>天津</option>
+                            <option>北京</option>
                         </select>
                     </div>
                     <div class="col-md-3 banf">
                         <select id="country13" class="form-control">
-                            <option>Finance Sector</option>
-                            <option>Banking Sector</option>
-                            <option> Engineering Sector</option>
-                            <option>Accounting Jobs</option>
-                            <option>Interior Design</option>
-                            <option>Export Import Jobs</option>
+                            <option>职位</option>
+                            <option>开发</option>
+                            <option>保洁</option>
                         </select>
 
                     </div>

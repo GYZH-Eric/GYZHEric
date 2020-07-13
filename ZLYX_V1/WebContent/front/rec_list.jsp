@@ -148,29 +148,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="row choose-main mt-5">
                     <div class="col-lg-4 job_info_right">
                         <div class="widget_search">
-                            <h3 class="j-b mb-3">Search</h3>
+                            <h3 class="j-b mb-3">搜索</h3>
                             <div class="widget-content">
-                                <form action="#" method="post">
+                                <form class="layui-form">
                                     <div class="form-group">
-                                        <label class="mb-2">I'm looking for a ...</label>
+                                        <label class="mb-2">职位</label>
 
-                                        <select class="form-control jb_1">
-                                            <option value="0">Job</option>
-                                            <option value="">Category1</option>
-                                            <option value="">Category2</option>
-                                            <option value="">Category3</option>
-                                            <option value="">Category4</option>
-                                        </select>
+                                        <input type="text" name="rPos" value="*" class="form-control jb_2" required="">
                                     </div>
                                     <div class="form-group">
-                                        <label class="mb-2">in</label>
+                                        <label class="mb-2">地址</label>
 
-                                        <input type="text" class="form-control jb_2" placeholder="Location" required="">
+                                        <input type="text" name="address" value="*" class="form-control jb_2" required="">
                                     </div>
-                                    <div class="form-group mb-3">
-                                        <input type="text" class="form-control jb_2" placeholder="Industry / Role" required="">
-                                    </div>
-                                    <input type="submit" value="Search">
+                                    <input lay-submit lay-filter="search" type="submit" value="Search">
                                 </form>
                             </div>
                         </div>
@@ -505,6 +496,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							
 						}
 					});
+				});
+				form.on("submit(search)",function(data){
+					rdata=data.field;
+					var url="../solrSearch.do";
+					//手动post
+					$.get(url,rdata,function(data){
+						if(data!=null){
+							var info="";
+							empDate=data;
+							$.each(data,function(i){
+								
+									info+="<div class=\"job-post-main row my-3\"><div class=\"col-md-9 job-post-info text-left\"><div class=\"job-post-icon\"><i class=\"fas fa-briefcase\"></i></div><div class=\"job-single-sec\"><h4><a href=\"#\">"+
+									data[i].cpuser.cpName+"</a></h4><p class=\"my-2\">"+data[i].rPos+
+									"</p><ul class=\"job-list-info d-flex\"><li><i class=\"fas fa-map-marker-alt\"></i> "+data[i].address+"</li><li><i class=\"fas fa-dollar-sign\"></i> "+
+									data[i].sal+"</li></ul></div><div class=\"clearfix\"></div></div><div class=\"col-md-3 job-single-time text-right\"><span class=\"job-time\"><i class=\"far fa-heart\"></i>"+
+									data[i].recId+"</span><a href=\"javascript:void(0)\" id=\""+i+"\" class=\"aply-btn \">查看详情</a></div></div>";
+								
+							});
+							$("#recList").html(info);
+						}else{
+							layer.msg("请求错误");
+						}
+					});
+					return false;
 				});
 			});
         });

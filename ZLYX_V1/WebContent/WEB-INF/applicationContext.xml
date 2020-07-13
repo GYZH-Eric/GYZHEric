@@ -25,5 +25,13 @@
 	    <!-- 指定要自动扫描接口的基础包，实现接口 -->
 	    <property name="basePackage" value="com.zlyx.dao"></property>
 	</bean> 
+	<!-- solr配置 -->
+	<bean id="httpSolrServer" class="org.apache.solr.client.solrj.impl.HttpSolrClient">
+		<constructor-arg index="0" value="http://localhost:8983/solr/zlyx_core" />
+		<property name="parser">
+			<bean class="org.apache.solr.client.solrj.impl.XMLResponseParser" />
+		</property>
+		<property name="connectionTimeout" value="500" />
+	</bean>
 
 </beans>

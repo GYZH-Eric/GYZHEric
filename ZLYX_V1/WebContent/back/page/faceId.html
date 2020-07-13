@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        video {
+            width: 300px;
+            height: 300px;
+            border: 5px solid #000;
+            border-radius: 10px;
+            margin-top:5%;
+        }
+    </style>
+    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">
+</head>
+<body style="text-align:center;">
+    <div>
+        <div id="play" class="layui-btn layui-btn-lg">开启摄像</div><br />
+        <video id="video"></video><br />
+        <div id="take" class="layui-btn layui-btn-danger layui-btn-lg" style="margin-top:5%">验证</div>
+    </div>
+	<script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+    <script>
+         // 开启摄像
+        document.getElementById('play').onclick = () => {
+            let constraints = {
+                // video属性设置
+                video: {
+                    width: 300,
+                    height: 300
+                },
+                // audio属性设置
+                audio: true
+            }
+            navigator.mediaDevices.getUserMedia(constraints)
+            .then(mediaStream => {
+                // 成功返回promise对象，接收一个mediaStream参数与video标签进行对接
+                document.getElementById('video').srcObject = mediaStream
+                document.getElementById('video').play()
+            })
+            // 失败就失败了
+        };
+		layui.use(['form','upload','layer'], function () {
+			var form = layui.form,
+	            layer = layui.layer,
+	            upload=layui.upload,
+	            $ = layui.jquery;
+			 var upper=upload.render({
+					elem:"#take",
+					url:"../../faceId.do",
+					data: {
+						  userName: function(){
+						    return $(window.parent.document).find("#userName").val();
+						  }
+					},
+					done:function(res){
+						if(res.msg=="ok"){
+							layer.msg('登录成功 正在跳转', function () {
+		    	            	window.parent.location = '/ZLYX_V1/back/index.jsp';
+		    	            });
+						}else{
+							layer.msg("面部识别失败 请录入全脸");
+						}
+					},
+					error:function(){
+						layer.msg("登录接口失败 请用账号登陆");
+					}
+			});
+		});
+    </script>
+</body>
+</html>

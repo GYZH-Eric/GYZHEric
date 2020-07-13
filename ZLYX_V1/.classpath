@@ -32,6 +32,15 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-web-4.1.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-webmvc-4.1.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/json-20180813.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-math3-3.6.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/httpclient-4.5.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/httpcore-4.4.10.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/httpmime-4.5.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/noggit-0.8.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api-1.7.24.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/solr-solrj-7.7.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zookeeper-3.4.14.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/TomcatServer"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

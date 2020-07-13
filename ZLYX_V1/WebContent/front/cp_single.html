@@ -220,7 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="main_grid_contact emp-single-page mt-5">
                     <div class="form emp-single">
                         <h4 class="mb-4 text-left">发送信息</h4>
-                        <form action="#" method="post" class="row">
+                        <div class="row">
                             <div class="col-lg-6 emp-single-line">
                                 <div class="form-group">
                                     <label class="my-2">姓名</label>
@@ -242,10 +242,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <textarea id="textarea" placeholder=""></textarea>
                                 </div>
                                 <div class="input-group1">
-                                    <input class="form-control" type="submit" value="发送">
+                                    <input class="form-control" type="submit"  id="sendEm" value="发送">
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -415,6 +415,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     						body.find("#tel").text(empDate[num].cpuser.tel);
     					}
     				});
+    			});
+    			$("#sendEm").on("click",function(){
+    				layer.msg("发送成功");
     			});
     		});
         });
